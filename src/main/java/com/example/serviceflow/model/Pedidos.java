@@ -3,7 +3,9 @@ package com.example.serviceflow.model;
 import jakarta.persistence.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Locale;
 
 @Entity
 @Table(name="pedidos")
@@ -29,7 +31,7 @@ public class Pedidos {
     private Date dataAgendamento;
 
     @Column(name="horario_agendamento")
-    private Date horarioAgendamento;
+    private LocalDateTime horarioAgendamento;
 
     @Column(name="nome_cliente")
     private String nomeCliente;
@@ -94,11 +96,11 @@ public class Pedidos {
         this.dataAgendamento = dataAgendamento;
     }
 
-    public Date getHorarioAgendamento() {
+    public LocalDateTime getHorarioAgendamento() {
         return horarioAgendamento;
     }
 
-    public void setHorarioAgendamento(Date horarioAgendamento) {
+    public void setHorarioAgendamento(LocalDateTime horarioAgendamento) {
         this.horarioAgendamento = horarioAgendamento;
     }
 
@@ -134,7 +136,7 @@ public class Pedidos {
         this.idEmpresa = idEmpresa;
     }
 
-    public Pedidos(Integer id, Integer idUsuario, Integer idServico, Date dataPedido, String status, Date dataAgendamento, Date horarioAgendamento, String nomeCliente, String emailCliente, String telefoneCliente, Integer idEmpresa) {
+    public Pedidos(Integer id, Integer idUsuario, Integer idServico, Date dataPedido, String status, Date dataAgendamento, LocalDateTime horarioAgendamento, String nomeCliente, String emailCliente, String telefoneCliente, Integer idEmpresa) {
         this.id = id;
         this.idUsuario = idUsuario;
         this.idServico = idServico;

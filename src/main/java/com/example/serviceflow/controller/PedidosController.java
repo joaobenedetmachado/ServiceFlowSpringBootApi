@@ -8,16 +8,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@RequestMapping("/pedidos")
 @RestController
+@RequestMapping("/pedidos")
 public class PedidosController {
 
     @Autowired
     private PedidosService pedidosService;
 
-    @GetMapping("/todospedidos")
-    public List<Pedidos> getPedidos(){
-        return pedidosService.listarPedidos();
+    @GetMapping
+    public ResponseEntity<List<Pedidos>> getPedidos() {
+        List<Pedidos> pedidos = pedidosService.listarPedidos();
+        return ResponseEntity.ok(pedidos);
     }
 
     @PostMapping
