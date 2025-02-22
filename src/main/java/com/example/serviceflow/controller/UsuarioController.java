@@ -17,16 +17,15 @@ public class UsuarioController {
     @Autowired // precisa disso pelo visto
     private UsuarioService usuarioService;
 
-    @GetMapping
-    public List<Usuario> listarUsers() {
-        return usuarioService.listarUsuarios();
-    }
-
     @GetMapping("/{id}")
     public Optional<Usuario> encontrarPorId(@PathVariable("id") Integer id) {
         return usuarioService.encontrarPorID(id);
     }
 
+    @GetMapping
+    public List<Usuario> listarUsers() {
+        return usuarioService.listarUsuarios();
+    }
 
     @PostMapping
     public ResponseEntity<Usuario> salvarUsuario(@RequestBody Usuario usuario) {
