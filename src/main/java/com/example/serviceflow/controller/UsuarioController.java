@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -20,6 +21,12 @@ public class UsuarioController {
     public List<Usuario> listarUsers() {
         return usuarioService.listarUsuarios();
     }
+
+    @GetMapping("/{id}")
+    public Optional<Usuario> encontrarPorId(@PathVariable("id") Integer id) {
+        return usuarioService.encontrarPorID(id);
+    }
+
 
     @PostMapping
     public ResponseEntity<Usuario> salvarUsuario(@RequestBody Usuario usuario) {

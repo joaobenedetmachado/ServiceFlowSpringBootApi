@@ -6,12 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsuarioService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    public Optional<Usuario> encontrarPorID(Integer id) {
+        return usuarioRepository.findById(id);
+    }
+
 
     public List<Usuario> listarUsuarios() {
         return usuarioRepository.findAll();
