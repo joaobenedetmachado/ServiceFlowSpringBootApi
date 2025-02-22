@@ -30,7 +30,7 @@ public class Pedidos {
     @Column(name="data_agendamento")
     private Date dataAgendamento;
 
-    @Column(name="horario_agendamento")
+    @Column(name = "horario_agendamento")
     private LocalDateTime horarioAgendamento;
 
     @Column(name="nome_cliente")
