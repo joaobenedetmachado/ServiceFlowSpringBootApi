@@ -3,6 +3,7 @@ package com.example.serviceflow.service;
 import com.example.serviceflow.model.Empresa;
 import com.example.serviceflow.model.Servico;
 import com.example.serviceflow.repository.ServicoRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -64,16 +65,4 @@ public class ServicoService {
         servicoRepository.save(servico);
     }
 
-    public void excluirServico(String email, Map<String, String> dados) {
-        Optional<Empresa> empresa = empresaService.buscarPorEmail(email);
-        if (!empresa.isPresent()) {
-            throw new RuntimeException("Empresa não encontrada");
-        }
-
-        servicoRepository.deleteByTituloAndDescricaoAndIdEmpresa(
-            dados.get("titulo_original"),
-            dados.get("descricao_original"),
-            empresa.get().getId()
-        );
-    }
 }
