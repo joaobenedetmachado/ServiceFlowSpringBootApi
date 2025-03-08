@@ -22,31 +22,13 @@ public class Empresa {
     @Column(name="descricaoempresa")
     private String descricaoempresa;
 
+    @Column(name="orcamento")
+    private Boolean orcamento;
+
     @Column(name="stripe_account_id")
     private String stripe_account_id;
 
     public Empresa() {};
-
-    public Empresa(Integer id, String nomeempresa, String emailempresa, String senhaempresa, String descricaoempresa, String stripe_account_id) {
-        this.id = id;
-        this.nomeempresa = nomeempresa;
-        this.emailempresa = emailempresa;
-        this.senhaempresa = senhaempresa;
-        this.descricaoempresa = descricaoempresa;
-        this.stripe_account_id = stripe_account_id;
-    }
-
-    @Override
-    public String toString() {
-        return "Empresa{" +
-                "id=" + id +
-                ", nomeempresa='" + nomeempresa + '\'' +
-                ", emailempresa='" + emailempresa + '\'' +
-                ", senhaempresa='" + senhaempresa + '\'' +
-                ", descricaoempresa='" + descricaoempresa + '\'' +
-                ", stripe_account_id='" + stripe_account_id + '\'' +
-                '}';
-    }
 
     public Integer getId() {
         return id;
@@ -88,11 +70,29 @@ public class Empresa {
         this.descricaoempresa = descricaoempresa;
     }
 
+    public Boolean getOrcamento() {
+        return orcamento;
+    }
+
+    public void setOrcamento(Boolean orcamento) {
+        this.orcamento = orcamento;
+    }
+
     public String getStripe_account_id() {
         return stripe_account_id;
     }
 
     public void setStripe_account_id(String stripe_account_id) {
+        this.stripe_account_id = stripe_account_id;
+    }
+
+    public Empresa(Integer id, String nomeempresa, String emailempresa, String senhaempresa, String descricaoempresa, Boolean orcamento, String stripe_account_id) {
+        this.id = id;
+        this.nomeempresa = nomeempresa;
+        this.emailempresa = emailempresa;
+        this.senhaempresa = senhaempresa;
+        this.descricaoempresa = descricaoempresa;
+        this.orcamento = orcamento;
         this.stripe_account_id = stripe_account_id;
     }
 }
